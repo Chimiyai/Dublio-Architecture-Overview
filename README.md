@@ -62,6 +62,7 @@ When a Voice Actor drops 500 recorded `.wav` files into the browser, manually as
 
 ### 4. Zero-Copy VFS & The "AI-Mode" Ingestion
 * **High-Velocity Pipeline:** When a game's master asset ZIP is uploaded, the "AI Mode Toggle" determines the pipeline. When disabled for speed, 40,000 files can be parsed, converted to `.opus` (for legal/fair-use safety), and metadata-extracted in just 50 minutes.
+* Example on Oxenfree game: Optimized 10GB of raw assets into 2.5GB (75% reduction) without audible quality loss
 * **Byte-Offset Mapping:** Media files are packed using `ZIP_STORED` (uncompressed). The Python backend calculates the exact `start` and `end` byte offsets for each file, enabling direct HTTP Range-Request streaming from Backblaze B2 without extracting the archive.
 ## 🏗️ System Architecture & Data Flow
 
