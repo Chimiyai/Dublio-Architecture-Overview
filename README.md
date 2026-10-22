@@ -1,4 +1,4 @@
-# 🎭 Dublio — Distributed Game Localization Platform
+# Dublio — Distributed Game Localization Platform
 
 **Zero-Copy VFS · BYOS Architecture · Native Engine Injection**
 
