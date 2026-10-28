@@ -119,7 +119,7 @@ Instead of centralizing expensive compute and storage, Dublio distributes worklo
 - The database stores `startByte` / `endByte` for each asset (and separate offsets for mixed audio).
 - **Two-tier retrieval:** when a build needs **more than 100** files from a vault, the client downloads the vault once and slices it locally with `seek`. When it needs fewer, it fetches each asset individually by HTTP byte-range, without downloading the whole archive.
 - Temporary vault downloads are deleted as soon as the build finishes, leaving no persistent disk footprint.
-- Storage is Backblaze B2, served through Cloudflare, so egress from B2 is free.
+- Storage is Backblaze B2, served by reading byte-ranges from B2 via a Cloudflare Worker, so egress from B2 is free.
 
 This architecture replaced an earlier design that used Google Apps Script workers to zip and unzip files. That version was measurably slower, and byte-offset slicing made it obsolete.
 
